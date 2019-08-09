@@ -1,0 +1,29 @@
+<div class="Login">
+<form  (ngSubmit)="onSubmit()" #loginForm="ngForm">
+ <div class="form-group">
+  <div>
+    <label for="email">
+      email
+    </label>
+    <input class="form-control" id="email" name="email" type="text" [(ngModel)] = "state.email" required #email="ngModel">
+    <div *ngIf="email.touched && email.errors?.required">
+        Email required  
+    </div>     
+  </div>
+
+  <div>
+    <label for="password">
+      password
+    </label>
+    <input class="form-control" id="password" name="password" type="password" [(ngModel)] = "state.password" required #password="ngModel" minlength="8">
+    <div *ngIf="password.touched && password.errors?.required">
+      Password required
+    </div>
+    <div *ngIf="password.touched && password.errors?.minlength">
+       Password must contain at least 8 characters 
+    </div>
+  </div>
+
+  <button class="btn btn-primary" type="submit" [disabled]="!loginForm.form.valid">Login</button>
+</form>
+</div>
