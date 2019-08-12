@@ -43,6 +43,8 @@ const appRoutes: Routes = [ // define routes
   bootstrap: [AppComponent]
 })
 export class AppModule { 
+
+   
    constructor(){
     Amplify.configure({
        Auth: {
@@ -67,5 +69,7 @@ export class AppModule {
           ]
        }
     });
+   
   }
+
 }

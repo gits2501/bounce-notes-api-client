@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" *ngIf="!isLogedIn.isAuthenticating">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" (click)="isCollapsed = !isCollapsed" aria-expanded="false">
@@ -14,9 +14,12 @@
     <div class="collapse navbar-collapse" [collapse]="isCollapsed">
       <ul class="nav navbar-nav pull-right">
         <li class="d-inline"><a routerLink="/signup" routerLinkActive="active">signup</a></li>
-        <li class="d-inline"><a routerLink="/login" routerLinkActive="active">login</a></li>
+        <li class="d-inline"><a routerLink="/login" routerLinkActive="active" *ngIf="!isLogedIn.status">login</a></li>
+        <li class="d-inline nav-logout"><a routerLink="/" routerLinkActive="active" *ngIf="isLogedIn.status" (click) ="isAuthenticated.AuthNLogout(); ">logout</a></li>
       </ul>
+      <p>Loged In: {{isLogedIn.status}}</p> <!-- TODO: add username when the user is loged in -->
     </div>
+    
   </div>
 </nav>
 <router-outlet></router-outlet>

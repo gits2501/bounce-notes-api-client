@@ -1,5 +1,7 @@
 .title {
-
     display: block;
 }
 
+.nav-logout{
+    background-color: #dadada;
+}

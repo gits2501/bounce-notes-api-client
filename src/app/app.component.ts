@@ -1,5 +1,5 @@
 import { Component} from '@angular/core';
-
+import { IsAuthenticatedService, logedIn } from './services/is-authenticated.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +8,16 @@ import { Component} from '@angular/core';
 })
 
 export class AppComponent {
-  isCollapsed = true;
+   isCollapsed = true;
+   private isLogedIn : any = logedIn;
+
+   constructor(){
+     console.log('isAuthenticated :', this.isAuthenticated);
+      console.log("Loged in:", this.isLogedIn)
+
+      this.isLogedIn = logedIn;
+   }
+   
+   isAuthenticated = new IsAuthenticatedService();
 }
 

@@ -1,5 +1,5 @@
 <div class="Login">
-<form  (ngSubmit)="onSubmit()" #loginForm="ngForm">
+<form  (ngSubmit)="login($event)" #loginForm = "ngForm">
  <div class="form-group">
   <div>
     <label for="email">
@@ -23,7 +23,7 @@
        Password must contain at least 8 characters 
     </div>
   </div>
-
-  <button class="btn btn-primary" type="submit" [disabled]="!loginForm.form.valid">Login</button>
+ </div> <!-- end of form-group div-->
+ <button class="btn btn-primary" type="submit" [disabled]="!loginForm.valid">Login</button>
 </form>
 </div>
